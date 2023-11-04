@@ -4,6 +4,10 @@ import imgbg from '../../assets/images/login-bg.jpg';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+    const handleRegister= e => {
+        console.log(e);
+    }
     return (
         <div className="w-full" style={{ backgroundImage: `url(${imgbg})` }}>
             <div className="hero min-h-screen flex items-center justify-center">
@@ -13,7 +17,7 @@ const Register = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm border justify-center">
                         <h2 className='text-center font-semibold text-2xl mt-6 text-white'>Please Registration</h2>
-                        <form  className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-white">Name</span>
