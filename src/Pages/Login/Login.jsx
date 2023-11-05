@@ -2,18 +2,16 @@ import React from 'react';
 import img from '../../assets/images/loginimg.jpg';
 import imgbg from '../../assets/images/login-bg.jpg';
 import { Link } from 'react-router-dom';
-
 const Login = () => {
     return (
-        <div className="w-full" style={{ backgroundImage: `url(${imgbg})` }}>
-            <div className="hero min-h-screen flex items-center justify-center">
-                <div className="md:hero-content">
-                    <div >
-                        <img className='rounded-xl mb-1 lg:h-[450px]' src={img} alt="" />
-                    </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm border justify-center">
-                        <h2 className='text-center font-semibold text-2xl mt-6 text-white'>Please Login</h2>
-                        <form  className="card-body">
+        <div className="" style={{ backgroundImage: `url(${imgbg})` }}>
+            <section className="p-6">
+                <div className="container grid h-full gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
+                    <img src={img} alt="" className="object-cover opacity-50 border w-full rounded-md xl:col-span-3" />
+                    <div className="w-full gradient-border space-y-5 px-6 py-5 border rounded-md sm:px-12 md:px-16 xl:col-span-2">
+                        <h1 className="text-5xl mb-8 font-extrabold text-white">Please Login</h1>
+
+                        <form className="self-stretch space-y-7">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-white">Email</span>
@@ -26,17 +24,16 @@ const Login = () => {
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hove text-white">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover  text-white">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control mt-6">
-                                <input className='btn bg-[#FF3811] text-white' type="submit" value="Login" />
-                            </div>
-                            <p className='text-white'>Already have account? <Link className='text-red-500' to='/register'>Registration</Link></p>
+
+                            <button type="submit" className="w-full btn btn-outline px-12 text-red-400">Login</button>
+                            <p className='text-white'>Don't have account? <Link className='text-red-400' to='/register'>Registration</Link></p>
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 };

@@ -1,28 +1,61 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../assets/images/loginimg.jpg';
 import imgbg from '../../assets/images/login-bg.jpg';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import toast from 'react-hot-toast';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext)
 
-    const handleRegister= e => {
-        console.log(e);
+    const handleRegister = e => {
+        e.preventDefault();
+        const form = e.target
+        const name = form.name.value
+        const photo = form.photo.value
+        const email = form.email.value
+        const password = form.password.value
+        console.log(name, photo, email, password);
+
+
+        if (!/(?=.*[A-Z])/.test(password)) {
+            toast.error("Password must contain at least one capital letter.")
+            return
+        } else if (!/(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-])/.test(password)) {
+            toast.error("one special character")
+            return
+        }
+        else if (password.length < 6) {
+            toast.error("Password must be at least 6 characters long.")
+            return
+        }
+        createUser(email, password)
+            .then(result => {
+                toast.success('Registration successful')
+                // navigate(location?.state ? location.state : '/')
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo,
+                })
+
+
+            })
+            .catch(() => toast.error(error.message))
     }
     return (
-        <div className="w-full" style={{ backgroundImage: `url(${imgbg})` }}>
-            <div className="hero min-h-screen flex items-center justify-center">
-                <div className="md:hero-content">
-                    <div >
-                        <img className='rounded-xl mb-1 lg:h-[520px]' src={img} alt="" />
-                    </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm border justify-center">
-                        <h2 className='text-center font-semibold text-2xl mt-6 text-white'>Please Registration</h2>
-                        <form onSubmit={handleRegister} className="card-body">
+        <div className="w-full h-full" style={{ backgroundImage: `url(${imgbg})` }}>
+            <section className="p-10">
+                <div className="container grid h-full gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
+                    <img src={img} alt="" className="object-cover mt-5 opacity-50 border w-full rounded-md xl:col-span-3" />
+                    <div className="w-full gradient-border space-y-5 px-6 py-5 border rounded-md sm:px-12 md:px-16 xl:col-span-2">
+                        <h1 className="text-4xl mb-8 font-extrabold text-white">Please Registration</h1>
+                        <form onSubmit={handleRegister} className="self-stretch space-y-2">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-white">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -42,14 +75,14 @@ const Register = () => {
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             </div>
-                            <div className="form-control mt-6">
-                                <input className='btn bg-[#FF3811] text-white' type="submit" value="Sign Up" />
+                            <div>
+                                <button type="submit" className="w-full btn btn-outline px-12 text-red-400">Registration</button>
+                                <p className='text-white'>Already have account? <Link className='text-red-400' to='/login'>Login</Link></p>
                             </div>
-                            <p className='text-white'>Already have account? <Link className='text-red-500' to='/login'>Login</Link></p>
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 };
