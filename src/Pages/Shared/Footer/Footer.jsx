@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/images/logo.png';
+import { FiPhone, FiMail } from "react-icons/fi";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
     return (
@@ -47,16 +49,16 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="uppercase dark:text-gray-50">Privacy Policy</h3>
+                            <h3 className="uppercase dark:text-gray-50">Get in Touch</h3>
                             <ul className="space-y-1">
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Term and Condition</a>
+                                <p className='flex gap-3 items-center'><span><FiPhone></FiPhone></span>  +8801863125143</p>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Security</a>
+                                <p className='flex gap-3 items-center'><span><FiMail></FiMail></span>  Janeyrahman900@gmail.com</p>
                                 </li>
                                 <li>
-                                    <a rel="noopener noreferrer" href="#">Privacy Policy</a>
+                                <p className='flex gap-3 items-center'><span><FaLocationDot></FaLocationDot></span>  musapur, companigonj, noakhali</p>
                                 </li>
                             </ul>
                         </div>

@@ -25,7 +25,7 @@ const Navbar = () => {
             Home
         </NavLink></li>
         <li><NavLink
-            to="/gallery"
+            to="/allfoods"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white font-bold underline" : ""
             }
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <label tabIndex={0} className="">
                     <div className="">
                             {
-                                user ? <div className='w-10 rounded-full'><img className='btn btn-ghost btn-circle avatar online' src={user?.photoURL} /></div> : 
+                                user ? <div className='w-10 rounded-full'><img className='btn btn-ghost btn-circle avatar border border-blue-800 rounded-full' src={user?.photoURL} /></div> : 
                                 // <img src={userImg} />
                                 <button className='btn w-full'>Login</button>
 
@@ -81,11 +81,32 @@ const Navbar = () => {
                         <li>
                             <a className="justify-center">
                                 {
-                                    user ? <h2 className='font-bold text-pink-500'>Name: {user && <span> {user.displayName} </span>}</h2> :
+                                    user ? <h2 className='font-bold text-red-400'> {user && <span> {user?.displayName} </span>}</h2> :
                                     <p></p>
                                 }
 
                             </a>
+                        </li>
+                        <li>
+                            <Link to='/myfood'>
+                            {
+                                user ? <button className='btn bg-[#fe3811] text-white px-12'>My Food</button> : undefined
+                            }
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/addfood'>
+                            {
+                                user ? <button className='btn  bg-[#fe3811] text-white px-12'>Add Food</button> : undefined
+                            }
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/myorder'>
+                            {
+                                user ? <button className='btn bg-[#fe3811] text-white px-12'>My order</button> : undefined
+                            }
+                            </Link>
                         </li>
                         {
                             user ?
