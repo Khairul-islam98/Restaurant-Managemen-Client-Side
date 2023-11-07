@@ -33,7 +33,7 @@ const Navbar = () => {
             All Food Items
         </NavLink></li>
         <li><NavLink
-            to="/contactus"
+            to="/blogs"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-white font-bold underline" : ""
             }
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#0e7490] rounded-box w-52">
                         {navLink}
                     </ul>
                 </div>
@@ -71,13 +71,12 @@ const Navbar = () => {
                     <div className="">
                             {
                                 user ? <div className='w-10 rounded-full'><img className='btn btn-ghost btn-circle avatar border border-blue-800 rounded-full' src={user?.photoURL} /></div> : 
-                                // <img src={userImg} />
                                 <button className='btn w-full'>Login</button>
 
                             }
                         </div>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#0e7490] rounded-box w-52">
                         <li>
                             <a className="justify-center">
                                 {
@@ -88,25 +87,25 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li>
-                            <Link to='/myfood'>
+                            
                             {
-                                user ? <button className='btn bg-[#fe3811] text-white px-12'>My Food</button> : undefined
+                                user ? <Link to='/myfood'><button className='btn bg-[#fe3811] text-white px-12'>My Food</button></Link> : <p></p>
                             }
-                            </Link>
+                            
                         </li>
                         <li>
-                            <Link to='/addfood'>
+                            
                             {
-                                user ? <button className='btn  bg-[#fe3811] text-white px-12'>Add Food</button> : undefined
+                                user ? <Link to='/addfood'><button className='btn  bg-[#fe3811] text-white px-12'>Add Food</button></Link> : <p></p>
                             }
-                            </Link>
+                            
                         </li>
                         <li>
-                            <Link to='/myorder'>
+                            
                             {
-                                user ? <button className='btn bg-[#fe3811] text-white px-12'>My order</button> : undefined
+                                user ? <Link to='/myorder'><button className='btn bg-[#fe3811] text-white px-12'>My order</button></Link> : <p></p>
                             }
-                            </Link>
+                            
                         </li>
                         {
                             user ?
