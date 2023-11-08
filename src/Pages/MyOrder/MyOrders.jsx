@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [orderItems, setOrderItems] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/orders?buyerEmail=${user.email}`, {withCredentials: true})
+        axios.get(`https://restaurant-management-server-snowy.vercel.app/orders?buyerEmail=${user.email}`, {withCredentials: true})
             .then((response) => {
                 console.log(response.data);
                 setOrderItems(response.data);
@@ -19,7 +19,7 @@ const MyOrders = () => {
     }, []);
 
     const handleDelete = (_id) => {
-        axios.delete(`http://localhost:5001/orders/${_id}`)
+        axios.delete(`https://restaurant-management-server-snowy.vercel.app/orders/${_id}`)
             .then(data => {
                 console.log(data.data);
                 if (data.data.deletedCount > 0) {
