@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 const Login = () => {
     const { signUser, signInGoogle } = useContext(AuthContext)
     const location = useLocation()
@@ -18,8 +19,9 @@ const Login = () => {
 
         signUser(email, password)
         .then(result => {
-            toast.success('Login successful')
-            navigate(location?.state ? location.state : '/')
+                
+            // toast.success('Login successful')
+            // navigate(location?.state ? location.state : '/')
         })
         .catch(() => toast.error("An error occurred while logging in."))
     } 

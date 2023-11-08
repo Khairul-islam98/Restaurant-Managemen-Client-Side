@@ -51,7 +51,7 @@ const FoodPurchase = () => {
                     }
                 });
 
-            axios.post('http://localhost:5001/orders', purchaseData )
+            axios.post('http://localhost:5001/orders', purchaseData, {withCredentials:true})
                 .then(data => {
                     console.log(data.data);
                     if(data.data.acknowledged){

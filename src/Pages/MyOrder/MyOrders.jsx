@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [orderItems, setOrderItems] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/orders?buyerEmail=${user.email}`)
+        axios.get(`http://localhost:5001/orders?buyerEmail=${user.email}`, {withCredentials: true})
             .then((response) => {
                 console.log(response.data);
                 setOrderItems(response.data);
