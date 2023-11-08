@@ -11,6 +11,7 @@ import AddFoods from '../Pages/AddFoods/AddFoods';
 import MyFoods from '../Pages/MyFoods/MyFoods';
 import FoodUpdate from '../Pages/FoodUpdate/FoodUpdate';
 import FoodPurchase from '../Pages/FoodPurchase/FoodPurchase';
+import MyOrders from '../Pages/MyOrder/MyOrders';
 
 const Router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const Router = createBrowserRouter([
             {
                 path: '/myfood',
                 element: <MyFoods />,
+            },
+            {
+                path: '/myorder',
+                element: <MyOrders />,
             },
             {
                 path: '/foodupdate/:id',
