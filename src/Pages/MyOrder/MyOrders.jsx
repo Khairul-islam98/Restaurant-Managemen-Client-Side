@@ -16,7 +16,7 @@ const MyOrders = () => {
             .catch((error) => {
                 console.error('Error fetching order items:', error);
             });
-    }, [user.email]);
+    }, []);
 
     const handleDelete = (_id) => {
         axios.delete(`http://localhost:5001/orders/${_id}`)

@@ -12,6 +12,7 @@ import MyFoods from '../Pages/MyFoods/MyFoods';
 import FoodUpdate from '../Pages/FoodUpdate/FoodUpdate';
 import FoodPurchase from '../Pages/FoodPurchase/FoodPurchase';
 import MyOrders from '../Pages/MyOrder/MyOrders';
+import PrivateRoute from '../Provider/PrivateRoute';
 
 const Router = createBrowserRouter([
     {
@@ -29,29 +30,29 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/singlefood/:id',
-                element: <SingleFood />,
+                element: <PrivateRoute><SingleFood /></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5001/products/${params.id}`) 
             },
             {
                 path: '/addfood',
-                element: <AddFoods />,
+                element: <PrivateRoute><AddFoods /></PrivateRoute>,
             },
             {
                 path: '/myfood',
-                element: <MyFoods />,
+                element: <PrivateRoute><MyFoods /></PrivateRoute>,
             },
             {
                 path: '/myorder',
-                element: <MyOrders />,
+                element: <PrivateRoute><MyOrders /></PrivateRoute>,
             },
             {
                 path: '/foodupdate/:id',
-                element: <FoodUpdate />,
+                element: <PrivateRoute><FoodUpdate /></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5001/products/${params.id}`)
             },
             {
                 path: '/foodpurchase/:id',
-                element: <FoodPurchase />,
+                element: <PrivateRoute><FoodPurchase /></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5001/products/${params.id}`)
             },
             {

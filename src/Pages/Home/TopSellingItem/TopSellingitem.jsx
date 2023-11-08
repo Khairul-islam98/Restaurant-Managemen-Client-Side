@@ -8,7 +8,6 @@ const TopSellingitem = () => {
     useEffect(() => {
         axios.get('http://localhost:5001/products')
             .then(data => {
-                console.log(data.data);
                 setTopSellingItems(data.data)
             })
     }, [])
@@ -19,7 +18,7 @@ const TopSellingitem = () => {
         <div className='py-10'>
             <div className="grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-3 w-5/6">
                 {topSixItems.map((food) => (
-                    <div className='py-5'>
+                    <div key={food._id} className='py-5'>
                         <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
                             <div className="mx-4  overflow-hidden text-white shadow-lg rounded-xl ">
                                 <img className='h-56 w-full'

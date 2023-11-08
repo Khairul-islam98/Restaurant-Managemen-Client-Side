@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import img from '../../assets/images/loginimg.jpg';
 import imgbg from '../../assets/images/login-bg.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault();
@@ -33,7 +35,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 toast.success('Registration successful')
-                // navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/')
                 updateProfile(result.user, {
                     displayName: name,
                     photoURL: photo,
@@ -41,7 +43,7 @@ const Register = () => {
 
 
             })
-            .catch(() => toast.error(error.message))
+            .catch(() => toast.error("Already have a Account"))
     }
     return (
         <div className="w-full h-full" style={{ backgroundImage: `url(${imgbg})` }}>
