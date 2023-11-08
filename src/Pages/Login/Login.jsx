@@ -18,10 +18,9 @@ const Login = () => {
         const password = form.password.value
 
         signUser(email, password)
-        .then(result => {
-                
-            // toast.success('Login successful')
-            // navigate(location?.state ? location.state : '/')
+        .then(result => {   
+            toast.success('Login successful')
+            navigate(location?.state ? location.state : '/')
         })
         .catch(() => toast.error("An error occurred while logging in."))
     } 
