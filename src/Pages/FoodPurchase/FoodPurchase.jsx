@@ -36,6 +36,8 @@ const FoodPurchase = () => {
                 food_image: food.food_image,
                 price: food.price,
                 quantity: updatedQuantity,
+                food_category: food.food_category,
+                orderCount: food.orderCount,
                 buyerName: user?.displayName,
                 buyerEmail: user?.email,
                 orderTime: new Date().toLocaleString(),
