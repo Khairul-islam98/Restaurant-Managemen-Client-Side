@@ -19,7 +19,7 @@ const FoodPurchase = () => {
 
     const handlePurchase = () => {
         if (parseInt(quantity) === 0) {
-            toast.error("This item is not available for purchase.");
+            toast.error("This Food is not available for purchase.");
             return;
         } else if (user.email === food.email) {
             toast.error("You can't purchase your own added food items.");
