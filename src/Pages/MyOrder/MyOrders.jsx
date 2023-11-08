@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext)
@@ -33,6 +34,9 @@ const MyOrders = () => {
 
     return (
         <div className="container mx-auto mb-28">
+            <Helmet>
+                <title>Restaurant Management || My Order </title>
+            </Helmet>
             <h2 className="text-2xl font-semibold mb-4 text-center py-6">My Order items</h2>
             <div className="overflow-x-auto">
                 <table className="min-w-full table text-center border rounded-lg">

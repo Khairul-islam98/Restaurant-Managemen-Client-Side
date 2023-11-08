@@ -6,6 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 const Login = () => {
     const { signUser, signInGoogle } = useContext(AuthContext)
     const location = useLocation()
@@ -35,6 +36,9 @@ const Login = () => {
     }
     return (
         <div className="" style={{ backgroundImage: `url(${imgbg})` }}>
+            <Helmet>
+                <title>Restaurant Management || Login </title>
+            </Helmet>
             <section className="p-6">
                 <div className="container grid h-full gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
                     <img src={img} alt="" className="object-cover opacity-50 border w-full rounded-md xl:col-span-3" />

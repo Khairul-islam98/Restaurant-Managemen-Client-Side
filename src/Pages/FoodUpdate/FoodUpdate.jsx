@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 
@@ -39,6 +40,9 @@ const FoodUpdate = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Restaurant Management || Food Update </title>
+            </Helmet>
             <div className='flex justify-center mb-10 mt-10 '>
                 <div className="w-full max-w-2xl p-2 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <form onSubmit={handleUpdate} className="space-y-6">

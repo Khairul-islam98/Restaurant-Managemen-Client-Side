@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const Blogs = () => {
     return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+            <Helmet>
+                <title>Restaurant Management || Blog </title>
+            </Helmet>
             <div className="bg-white p-8 rounded-lg shadow-lg">
                 <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">My Blog</h1>
                 <div className="text-gray-600">

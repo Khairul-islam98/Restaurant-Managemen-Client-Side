@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Food from './Food/Food';
+import { Helmet } from 'react-helmet';
 
 const AllFoods = () => {
     const [products, setProducts] = useState([])
@@ -54,6 +55,9 @@ const AllFoods = () => {
     
     return (
         <div>
+            <Helmet>
+                <title>Restaurant Management || All Food Items </title>
+            </Helmet>
             <div className="text-center py-11 ">
                 <form onSubmit={handleSearch}>
                     <input className="py-1  pl-2  ring-1 outline-none lg:w-96" type="text" name="search" placeholder="Search here..." />

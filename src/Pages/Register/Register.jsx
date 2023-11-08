@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { updateProfile } from 'firebase/auth';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -47,6 +48,9 @@ const Register = () => {
     }
     return (
         <div className="w-full h-full" style={{ backgroundImage: `url(${imgbg})` }}>
+            <Helmet>
+                <title>Restaurant Management || Register </title>
+            </Helmet>
             <section className="p-10">
                 <div className="container grid h-full gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
                     <img src={img} alt="" className="object-cover mt-5 opacity-50 border w-full rounded-md xl:col-span-3" />
