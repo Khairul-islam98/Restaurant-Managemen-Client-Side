@@ -31,7 +31,7 @@ const AddFoods = () => {
             short_description
         }
         console.log(food);
-        axios.post('restaurant-management-server-snowy.vercel.app/products', food)
+        axios.post('http://localhost:5001/products', food)
             .then(res => {
                 console.log(res.data);
                 if(res.data.acknowledged){

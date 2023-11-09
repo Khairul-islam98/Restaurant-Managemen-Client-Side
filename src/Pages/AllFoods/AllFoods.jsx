@@ -16,7 +16,7 @@ const AllFoods = () => {
     
 
     useEffect(() => {
-        fetch('restaurant-management-server-snowy.vercel.app/productsCount')
+        fetch('http://localhost:5001/productsCount')
             .then(res => res.json())
             .then(data => {
                 setCount(data.count)
@@ -24,7 +24,7 @@ const AllFoods = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`restaurant-management-server-snowy.vercel.app/products?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`http://localhost:5001/products?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -34,7 +34,7 @@ const AllFoods = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const searchValue = e.target.search.value;
-        fetch(`restaurant-management-server-snowy.vercel.app/search?searchTerm=${searchValue}`)
+        fetch(`http://localhost:5001/search?searchTerm=${searchValue}`)
           .then((res) => res.json())
           .then((data) => {
             setProducts(data);
