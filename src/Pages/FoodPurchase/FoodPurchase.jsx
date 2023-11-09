@@ -3,6 +3,8 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
+import banner from '../../assets/images/purchase.png'
 
 const FoodPurchase = () => {
     const data = useLoaderData()
@@ -54,78 +56,85 @@ const FoodPurchase = () => {
             axios.post('https://restaurant-management-server-sigma.vercel.app/orders', purchaseData)
                 .then(data => {
                     console.log(data.data);
-                    if(data.data.acknowledged){
+                    if (data.data.acknowledged) {
                         toast.success('Purchase successful')
                     }
                 })
-                }
+        }
     }
 
-        return (
+    return (
+        <div>
+            <div className="hero min-h-[400px] opacity-95 mb-5" style={{ backgroundImage: `url(${banner})` }}></div>
             <div className="p-4 lg:w-1/2 mx-auto">
-                <h2 className="text-2xl mb-4">Food Purchase Form</h2>
-                <form className="mb-4">
-                    <div className="mb-4">
-                        <label className="block mb-1">Food Name:</label>
-                        <input
-                            type="text"
-                            className="border rounded w-full p-2"
-                            value={food_name}
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Price:</label>
-                        <input
-                            type="number"
-                            className="border rounded w-full p-2"
-                            value={price}
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Quantity:</label>
-                        <input
-                            type="number"
-                            className="border rounded w-full p-2"
-                            value={quantity}
-                            onChange={handleQuantityChange}
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Buyer Name:</label>
-                        <input
-                            type="text"
-                            className="border rounded w-full p-2"
-                            value={user?.displayName}
-                            readOnly
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Buyer Email:</label>
-                        <input
-                            type="email"
-                            className="border rounded w-full p-2"
-                            value={user?.email}
-                            readOnly
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label className="block mb-1">Buying Date:</label>
-                        <input
-                            type="date"
-                            className="border rounded w-full p-2"
-                            name='orderTime'
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        onClick={handlePurchase}
-                        className="bg-blue-500 text-white p-2 rounded"
-                    >
-                        Purchase
-                    </button>
-                </form>
-            </div>
-        );
-    };
+            <Helmet>
+                <title>Restaurant Management || Food Purchase </title>
+            </Helmet>
+            
+            <h2 className="text-2xl mb-4 text-center">Food Purchase</h2>
+            <form className="mb-4">
+                <div className="mb-4">
+                    <label className="block mb-1">Food Name:</label>
+                    <input
+                        type="text"
+                        className="border rounded w-full p-2"
+                        value={food_name}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Price:</label>
+                    <input
+                        type="number"
+                        className="border rounded w-full p-2"
+                        value={price}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Quantity:</label>
+                    <input
+                        type="number"
+                        className="border rounded w-full p-2"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Buyer Name:</label>
+                    <input
+                        type="text"
+                        className="border rounded w-full p-2"
+                        value={user?.displayName}
+                        readOnly
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Buyer Email:</label>
+                    <input
+                        type="email"
+                        className="border rounded w-full p-2"
+                        value={user?.email}
+                        readOnly
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block mb-1">Buying Date:</label>
+                    <input
+                        type="date"
+                        className="border rounded w-full p-2"
+                        name='orderTime'
+                    />
+                </div>
+                <button
+                    type="button"
+                    onClick={handlePurchase}
+                    className="btn btn-outline btn-success px-20 text-white p-2 rounded flex mx-auto"
+                >
+                    Purchase
+                </button>
+            </form>
+        </div>
+        </div>
+    );
+};
 
-    export default FoodPurchase;
+export default FoodPurchase;

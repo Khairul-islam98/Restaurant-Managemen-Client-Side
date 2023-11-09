@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import Food from './Food/Food';
+import banner from '../../assets/images/allfood.gif'
 import { Helmet } from 'react-helmet';
 
 const AllFoods = () => {
     const [products, setProducts] = useState([])
-    // const carts = useLoaderData()
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const [count, setCount] = useState(0)
@@ -58,10 +57,11 @@ const AllFoods = () => {
             <Helmet>
                 <title>Restaurant Management || All Food Items </title>
             </Helmet>
+            <div className="hero lg:min-h-[600px] opacity-95 mb-5" style={{ backgroundImage: `url(${banner})` }}></div>
             <div className="text-center py-11 ">
                 <form onSubmit={handleSearch}>
-                    <input className="py-1  pl-2  ring-1 outline-none lg:w-96" type="text" name="search" placeholder="Search here..." />
-                    <button className="bg-[#FF444A] px-4 py-1 rounded-r-md text-white">Search</button>
+                    <input className="py-1  pl-2 border-red-500  ring-1 outline-none lg:w-96" type="text" name="search" placeholder="Search here..." />
+                    <button className="bg-[#FF444A] px-4 h-full py-1 rounded-r-md text-white">Search</button>
                 </form>
             </div>
             <div className='grid mx-auto md:grid-cols-2 lg:grid-cols-3 gap-3 w-5/6'>
