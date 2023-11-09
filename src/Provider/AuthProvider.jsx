@@ -34,20 +34,20 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             console.log('current user', currentUser);
             setLoading(false);
-            if (currentUser) {
-                axios.post('https://restaurant-management-server-snowy.vercel.app/jwt', loggedUser, { withCredentials: true })
-                    .then(res => {
-                        console.log('token response', res.data);
-                    })
-            }
-            else {
-                axios.post('https://restaurant-management-server-snowy.vercel.app/logout', loggedUser, {
-                    withCredentials: true
-                })
-                    .then(res => {
-                        console.log(res.data);
-                    })
-            }
+            // if (currentUser) {
+            //     axios.post('restaurant-management-server-snowy.vercel.app/jwt', loggedUser, { withCredentials: true })
+            //         .then(res => {
+            //             console.log('token response', res.data);
+            //         })
+            // }
+            // else {
+            //     axios.post('restaurant-management-server-snowy.vercel.app/logout', loggedUser, {
+            //         withCredentials: true
+            //     })
+            //         .then(res => {
+            //             console.log(res.data);
+            //         })
+            // }
         });
         return () => {
             return unsubscribe();

@@ -6,7 +6,7 @@ const TopSellingitem = () => {
     const [topSellingItems, setTopSellingItems] = useState([]);
 
     useEffect(() => {
-        axios.get('https://restaurant-management-server-snowy.vercel.app/products')
+        axios.get('restaurant-management-server-snowy.vercel.app/products')
             .then(data => {
                 setTopSellingItems(data.data)
             })

@@ -43,7 +43,7 @@ const FoodPurchase = () => {
                 orderTime: new Date().toLocaleString(),
             };
 
-            axios.patch(`https://restaurant-management-server-snowy.vercel.app/products/${food._id}`, { quantity: updatedQuantity })
+            axios.patch(`restaurant-management-server-snowy.vercel.app/products/${food._id}`, { quantity: updatedQuantity })
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.modifiedCount > 0) {
@@ -51,7 +51,7 @@ const FoodPurchase = () => {
                     }
                 });
 
-            axios.post('https://restaurant-management-server-snowy.vercel.app/orders', purchaseData, {withCredentials:true})
+            axios.post('restaurant-management-server-snowy.vercel.app/orders', purchaseData)
                 .then(data => {
                     console.log(data.data);
                     if(data.data.acknowledged){

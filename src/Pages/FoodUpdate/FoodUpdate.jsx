@@ -30,7 +30,7 @@ const FoodUpdate = () => {
             short_description
         }
         console.log(food);
-        axios.put(`https://restaurant-management-server-snowy.vercel.app/products/${_id}`, foodUpdate)
+        axios.put(`restaurant-management-server-snowy.vercel.app/products/${_id}`, foodUpdate)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0){

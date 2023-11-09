@@ -36,7 +36,7 @@ const Router = createBrowserRouter([
             {
                 path: '/singlefood/:id',
                 element: <PrivateRoute><SingleFood /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-snowy.vercel.app/products/${params.id}`) 
+                loader: ({params}) => fetch(`restaurant-management-server-snowy.vercel.app/products/${params.id}`) 
             },
             {
                 path: '/addfood',
@@ -53,12 +53,12 @@ const Router = createBrowserRouter([
             {
                 path: '/foodupdate/:id',
                 element: <PrivateRoute><FoodUpdate /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-snowy.vercel.app/products/${params.id}`)
+                loader: ({params}) => fetch(`restaurant-management-server-snowy.vercel.app/products/${params.id}`)
             },
             {
                 path: '/foodpurchase/:id',
                 element: <PrivateRoute><FoodPurchase /></PrivateRoute>,
-                loader: ({params}) => fetch(`https://restaurant-management-server-snowy.vercel.app/products/${params.id}`)
+                loader: ({params}) => fetch(`restaurant-management-server-snowy.vercel.app/products/${params.id}`)
             },
             {
                 path: '/login',
