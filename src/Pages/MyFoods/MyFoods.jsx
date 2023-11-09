@@ -12,7 +12,7 @@ const MyFoods = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5001/products?email=${user.email}`)
+        axios.get(`https://restaurant-management-server-sigma.vercel.app/products?email=${user.email}`)
             .then((response) => {
                 setFoodItems(response.data);
             })
@@ -43,7 +43,7 @@ const MyFoods = () => {
             quantity,
 
         }
-        axios.put(`http://localhost:5001/products/${selectedFoodItem._id}`, foodUpdate)
+        axios.put(`https://restaurant-management-server-sigma.vercel.app/products/${selectedFoodItem._id}`, foodUpdate)
             .then((res) => {
                 if (res.data.modifiedCount > 0) {
                     toast.success('Food updated successfully');

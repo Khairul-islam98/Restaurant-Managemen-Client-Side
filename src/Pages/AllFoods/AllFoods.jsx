@@ -16,7 +16,7 @@ const AllFoods = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5001/productsCount')
+        fetch('https://restaurant-management-server-sigma.vercel.app/productsCount')
             .then(res => res.json())
             .then(data => {
                 setCount(data.count)
@@ -24,7 +24,7 @@ const AllFoods = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5001/products?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`https://restaurant-management-server-sigma.vercel.app/products?page=${currentPage}&size=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -34,7 +34,7 @@ const AllFoods = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         const searchValue = e.target.search.value;
-        fetch(`http://localhost:5001/search?searchTerm=${searchValue}`)
+        fetch(`https://restaurant-management-server-sigma.vercel.app/search?searchTerm=${searchValue}`)
           .then((res) => res.json())
           .then((data) => {
             setProducts(data);
